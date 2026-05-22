@@ -15,7 +15,7 @@ def test_root_redirect():
     # Arrange
     client = TestClient(app)
     # Act
-    response = client.get("/", allow_redirects=False)
+    response = client.get("/", follow_redirects=False)
     # Assert
     assert response.status_code in (302, 307)
     assert "/static/index.html" in response.headers["location"]
